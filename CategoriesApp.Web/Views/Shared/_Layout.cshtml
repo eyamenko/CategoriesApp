@@ -1,0 +1,19 @@
+﻿@using System.Web.Optimization
+@model CategoriesApp.Models.ViewModels.BaseViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@Model.Title</title>
+    @Styles.Render("~/bundles/css/lib")
+    @RenderSection("styles", false)
+</head>
+<body>
+    <div class="content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/js/lib")
+    @RenderSection("scripts", false)
+</body>
+</html>
