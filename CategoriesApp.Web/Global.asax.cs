@@ -12,12 +12,11 @@
     {
         private void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(DependencyConfig.Container));
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(DependencyConfig.Container.Value));
         }
     }
 }

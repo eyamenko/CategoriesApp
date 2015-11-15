@@ -1,6 +1,5 @@
 ﻿namespace CategoriesApp.Data
 {
-    using System;
     using System.Data;
     using System.Data.SqlClient;
     using Contracts.Data;
@@ -14,10 +13,9 @@
             _connectionString = connectionString;
         }
 
-        public T Get<T>(Func<IDbConnection, T> func)
+        public IDbConnection Get()
         {
-            using (var connection = new SqlConnection(_connectionString))
-                return func(connection);
+            return new SqlConnection(_connectionString);
         }
     }
 }

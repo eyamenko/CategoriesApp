@@ -1,6 +1,7 @@
 ﻿namespace CategoriesApp.Data.Primitives
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Contracts.Data;
     using Dapper;
@@ -16,17 +17,19 @@
 
         protected async Task<TEntity> QuerySingle<TEntity>(string sql, object param = null)
         {
-            return await _connectionFactory.Get(conn => conn.ExecuteScalarAsync<TEntity>(sql, param));
+            return (await this.Query<TEntity>(sql, param)).SingleOrDefault();
         }
 
         protected async Task<IEnumerable<TEntity>> Query<TEntity>(string sql, object param = null)
         {
-            return await _connectionFactory.Get(conn => conn.QueryAsync<TEntity>(sql, param));
+            using (var connection = _connectionFactory.Get())
+                return await connection.QueryAsync<TEntity>(sql, param);
         }
 
         protected async Task<bool> Execute(string sql, object param = null)
         {
-            return await _connectionFactory.Get(conn => conn.ExecuteAsync(sql, param)) > 0;
+            using (var connection = _connectionFactory.Get())
+                return await connection.ExecuteAsync(sql, param) > 0;
         }
     }
 }

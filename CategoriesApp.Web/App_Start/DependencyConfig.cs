@@ -1,5 +1,6 @@
 ﻿namespace CategoriesApp.Web
 {
+    using System;
     using System.Configuration;
     using System.Reflection;
     using Autofac;
@@ -12,9 +13,12 @@
 
     public static class DependencyConfig
     {
-        private static ILifetimeScope _container;
+        public static readonly Lazy<ILifetimeScope> Container;
 
-        public static ILifetimeScope Container => _container ?? (_container = Build());
+        static DependencyConfig()
+        {
+            Container = new Lazy<ILifetimeScope>(Build);
+        }
 
         private static ILifetimeScope Build()
         {

@@ -1,1 +1,20 @@
-﻿
+﻿@using System.Web.Optimization
+@section styles
+{
+    <link rel="stylesheet" href="~/Assets/css/apps/categories/compiled/compiled.css" />
+}
+
+<div class="app"></div>
+
+@section scripts
+{
+    <script>
+        $(function() {
+            var collection = new Categories.Collections.CategoriesCollection();
+            var view = new Categories.Views.CategoriesListView({ collection: collection });
+            $(".app").html(view.render().el);
+        });
+    </script>
+
+    @Scripts.Render("~/bundles/js/categories")
+}

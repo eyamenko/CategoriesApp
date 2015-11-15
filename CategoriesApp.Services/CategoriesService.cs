@@ -37,6 +37,11 @@
 
         public async Task<bool> Delete(int id)
         {
+            var children = await this.GetChildren(id);
+
+            foreach (var child in children)
+                await this.Delete(child.Id);
+
             return await _categoriesRepository.Delete(id);
         }
 

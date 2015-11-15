@@ -24,7 +24,11 @@
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/js/categories").Include(
-                "~/Assets/js/apps/categories/ns.js"
+                "~/Assets/js/apps/categories/ns.js",
+                "~/Assets/js/apps/categories/models/*.js",
+                "~/Assets/js/apps/categories/collections/*.js",
+                "~/Assets/js/apps/categories/templates/compiled/compiled.js",
+                "~/Assets/js/apps/categories/views/*.js"
                 ));
         }
     }
