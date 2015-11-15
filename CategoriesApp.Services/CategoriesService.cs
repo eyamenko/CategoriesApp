@@ -27,21 +27,18 @@
 
         public async Task<bool> Create(Category category)
         {
-            return await _categoriesRepository.Create(category);
+            return Category.IsValid(category) && await _categoriesRepository.Create(category);
         }
 
         public async Task<bool> Update(Category category)
         {
-            return await _categoriesRepository.Update(category);
+            return Category.IsValid(category) && await _categoriesRepository.Update(category);
         }
 
         public async Task<bool> Delete(int id)
         {
-            var children = await this.GetChildren(id);
-
-            foreach (var child in children)
+            foreach (var child in await this.GetChildren(id))
                 await this.Delete(child.Id);
-
             return await _categoriesRepository.Delete(id);
         }
 

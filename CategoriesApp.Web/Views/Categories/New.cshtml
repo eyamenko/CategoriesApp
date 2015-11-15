@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@model CategoriesApp.Models.ViewModels.BaseViewModel
 @section styles
 {
     <link rel="stylesheet" href="~/Assets/css/apps/categories/compiled/compiled.css" />
@@ -10,7 +11,8 @@
 {
     <script>
         $(function() {
-            var view = new Categories.Views.CategoriesView();
+            var model = new Categories.Models.CategoryModel();
+            var view = new Categories.Views.CategoryView({ model: model });
             $(".app").html(view.render().el);
         });
     </script>

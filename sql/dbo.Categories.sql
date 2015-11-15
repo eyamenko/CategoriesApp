@@ -16,7 +16,8 @@ CREATE TABLE [dbo].[Categories] (
     [Id]       INT            IDENTITY (1, 1) NOT NULL,
     [Name]     NVARCHAR (MAX) NOT NULL,
     [ParentId] INT            NULL,
-    CONSTRAINT [PK_Categories] PRIMARY KEY CLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id]), 
+    CONSTRAINT [FK_Categories_ToCategories] FOREIGN KEY ([ParentId]) REFERENCES [dbo].[Categories]([Id])
 );
 
 SET IDENTITY_INSERT [dbo].[Categories] ON

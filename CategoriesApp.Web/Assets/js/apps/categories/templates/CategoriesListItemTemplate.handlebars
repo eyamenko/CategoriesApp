@@ -1,8 +1,12 @@
 ﻿<div class="category-container">
     <div class="category">{{name}}</div>
     <div class="buttons-container">
-        <button class="btn edit">Edit</button>
-        <button class="btn delete">&times;</button>
+        {{#if category}}
+        <button type="button" class="btn btn-default select">Select</button>
+        {{else}}
+        <a href="/categories/edit?id={{id}}" class="btn btn-default">Edit</a>
+        <button class="btn btn-danger delete">&times;</button>
+        {{/if}}
     </div>
 </div>
 <div class="categories-viewpart"></div>

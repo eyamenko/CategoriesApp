@@ -135,8 +135,15 @@
     <Content Include="Assets\js\apps\categories\collections\CategoriesCollection.js" />
     <Content Include="Assets\js\apps\categories\models\CategoryModel.js" />
     <Content Include="Assets\js\apps\categories\ns.js" />
+    <Content Include="Assets\css\apps\categories\categories-view.less" />
+    <Content Include="Assets\css\apps\categories\category-view.less" />
+    <None Include="Assets\js\apps\categories\templates\CategoriesTemplate.handlebars" />
+    <None Include="Assets\js\apps\categories\templates\CategoryTemplate.handlebars" />
     <Content Include="Assets\js\apps\categories\templates\compiled\compiled.js" />
+    <Content Include="Assets\js\apps\categories\views\CategoriesListItemView.js" />
     <Content Include="Assets\js\apps\categories\views\CategoriesListView.js" />
+    <Content Include="Assets\js\apps\categories\views\CategoriesView.js" />
+    <Content Include="Assets\js\apps\categories\views\CategoryView.js" />
     <Content Include="Assets\js\apps\shared\ns.js" />
     <Content Include="Assets\js\lib\backbone-min.js" />
     <Content Include="Assets\js\lib\backbone.stickit.js" />
@@ -175,6 +182,8 @@
     <Content Include="Views\Categories\All.cshtml" />
     <Content Include="Assets\js\apps\categories\templates\CategoriesListItemTemplate.handlebars" />
     <Content Include="Assets\css\apps\categories\categories-list-item-view.less" />
+    <None Include="Views\Categories\Edit.cshtml" />
+    <None Include="Views\Categories\New.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
