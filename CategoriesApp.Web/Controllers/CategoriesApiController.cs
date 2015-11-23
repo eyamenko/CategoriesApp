@@ -41,7 +41,7 @@
         public async Task<IHttpActionResult> Create(Category category)
         {
             if (await _categoriesService.Create(category))
-                return Ok(new {success = true});
+                return Ok(category);
             return BadRequest();
         }
 
@@ -50,7 +50,7 @@
         public async Task<IHttpActionResult> Update(int id, Category category)
         {
             if (await _categoriesService.Update(category))
-                return Ok(new {success = true});
+                return Ok(category);
             return BadRequest();
         }
 
@@ -59,7 +59,7 @@
         public async Task<IHttpActionResult> Delete(int id)
         {
             if (await _categoriesService.Delete(id))
-                return Ok(new {success = true});
+                return Ok(new {id});
             return BadRequest();
         }
     }
