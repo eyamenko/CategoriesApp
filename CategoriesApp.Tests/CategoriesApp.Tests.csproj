@@ -34,6 +34,10 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -49,15 +53,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CategoriesApp.Web\CategoriesApp.Web.csproj">
-      <Project>{EA90B342-6997-4238-95A5-5B89A740F4C8}</Project>
-      <Name>CategoriesApp.Web</Name>
-    </ProjectReference>
+    <Compile Include="Services\CategoriesServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CategoriesApp.Contracts\CategoriesApp.Contracts.csproj">
+      <Project>{e8295ae2-699b-46e5-bf32-2b69ed6ac906}</Project>
+      <Name>CategoriesApp.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CategoriesApp.Data\CategoriesApp.Data.csproj">
+      <Project>{f6b0cd89-c782-4a16-9c46-3b0f34a9345e}</Project>
+      <Name>CategoriesApp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CategoriesApp.Models\CategoriesApp.Models.csproj">
+      <Project>{476a80e7-5547-4255-bf90-fdf9ed719252}</Project>
+      <Name>CategoriesApp.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CategoriesApp.Services\CategoriesApp.Services.csproj">
+      <Project>{210374b4-ec10-488a-9243-529250546126}</Project>
+      <Name>CategoriesApp.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
