@@ -73,9 +73,9 @@
         [TestMethod]
         public async Task TestGetChildren()
         {
-            var children = await _categoriesService.GetChildren(1);
+            var categories = await _categoriesService.GetChildren(1);
 
-            Assert.AreEqual(2, children.Count());
+            Assert.AreEqual(2, categories.Count());
         }
 
         [TestMethod]
@@ -89,9 +89,10 @@
         [TestMethod]
         public async Task TestDelete()
         {
+            Assert.IsTrue(await _categoriesService.Delete(1));
+
             var categories = await _categoriesService.Get();
 
-            Assert.IsTrue(await _categoriesService.Delete(1));
             Assert.AreEqual(1, categories.Count());
         }
     }
